@@ -3,14 +3,45 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-    name: String,
-    age: Number,
-    order: mongoose.SchemaTypes.ObjectId,
-    phoneNumbers: [String],
+    first_name: {
+        type: String,
+        required: true,
+        trim: true,
+    },
+    last_name: {
+        type: String,
+        required: true,
+        trim: true,
+    },
     address: {
-        street: String,
-        city: String
-    }
+        type: String,
+        required: false,
+        trim: true,
+        default: null
+    },
+    firebase_uuid: {
+        type: String,
+        required: true,
+        trim: true,
+    },
+    telephone: {
+        type: String,
+        required: false,
+        min: 10,
+        max: 10,
+        trim: true,
+    },
+    role: {
+        type: String,
+        required: true,
+        trim: true,
+        default: 'customer'
+    },
+
 })
 
-module.exports = mongoose.model("User",userSchema);
+const User = mongoose.model("User",userSchema);
+
+module.exports = User;
+
+// order: mongoose.SchemaTypes.ObjectId,

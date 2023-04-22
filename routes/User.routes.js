@@ -1,11 +1,13 @@
 const express = require('express')
 const app = express.Router()
+const userController = require('../controllers/User.controller');
 
-app.get('/', function (req, res) {
-    res.send('All Users');
-});
-app.get('/:id', function (req, res) {
-    res.send('View Users' + req.params.id);
-});
+// User routes
+app.route('/').get(userController.getAllUsers);
+app.route('/').post(userController.createUser);
+app.route('/:id').get(userController.getUserById);
+app.route('/:id').patch(userController.updateUser);
+app.route('/:id').delete(userController.deleteUser);
+
 
 module.exports = app 

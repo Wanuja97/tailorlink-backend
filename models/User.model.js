@@ -13,13 +13,19 @@ const userSchema = new mongoose.Schema({
         required: true,
         trim: true,
     },
+    email: {
+        type: String,
+        required: true,
+        trim: true,
+        unique: true, // this is a unique index
+    },
     address: {
         type: String,
         required: false,
         trim: true,
         default: null
     },
-    firebase_uuid: {
+    firebase_uid: {
         type: String,
         required: true,
         trim: true,

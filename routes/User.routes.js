@@ -13,4 +13,4 @@ app.route('/:id').patch(userController.updateUser);
 app.route('/:id').delete(userController.deleteUser);
 
 
-module.exports = app 
+module.exports = app ;

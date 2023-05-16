@@ -31,12 +31,6 @@ const productSchema = new mongoose.Schema({
         ref: 'Category',
         required: true,
     },
-    sub_category: {
-        type: mongoose.SchemaTypes.ObjectId,
-
-        ref: 'SubCategory',
-        required: true,
-    },
     price: {
         type: Number,
         required: true,
@@ -55,10 +49,14 @@ const productSchema = new mongoose.Schema({
         type: Array,
         required: true,
     },
-    is_active: {
+    is_available: {
         type: Boolean,
         required: true,
         default: true,
+    },
+    available_quantity: {
+        type: Number,
+        required: true,
     },
     date: {
         type: Date,

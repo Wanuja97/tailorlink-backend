@@ -41,13 +41,15 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true,
-        default: 'customer'
+        default: 'customer',
     },
-
+    is_banned: {
+        type: Boolean,
+        required: true,
+        default: false,
+    },    
 })
 
 const User = mongoose.model("User",userSchema);
 
 module.exports = User;
-
-// order: mongoose.SchemaTypes.ObjectId,

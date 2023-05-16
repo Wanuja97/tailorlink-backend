@@ -11,7 +11,10 @@ exports.getAllProductsBySellerId = async (req, res) => {
             },
         });
     } catch (error) {
-        res.status(500).send(error);
+        res.status(500).json({
+            message: "Error while fetching products",
+            error: error.message,
+        });
     }
 }
 
@@ -26,7 +29,10 @@ exports.createProduct = async (req, res) => {
             },
         });   
     } catch (error) {
-        res.status(500).send(error);
+        res.status(500).json({
+            message: "Error while creating product",
+            error: error.message,
+        });
     }  
 }
 

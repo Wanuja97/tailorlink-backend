@@ -9,6 +9,7 @@ const {User} = require('./models/User.model')
 const userRoutes = require('./routes/User.routes');
 const productRoutes = require('./routes/Product.routes');
 const categoryRoutes = require('./routes/Category.routes');
+const notificationRoutes = require('./routes/Notification.routes');
 dotenv.config();
 const port = process.env.PORT;
 
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/categories', categoryRoutes);
+app.use('/api/notifications', notificationRoutes);
 
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);

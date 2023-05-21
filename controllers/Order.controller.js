@@ -1,8 +1,8 @@
-const CustomizeOrder = require('../models/CustomizeOrder.model');
+const Order = require('../models/Order.model');
 
-exports.getAllCustomizedOrderForOneCustomer = async (req, res) => {
+exports.getAllOrdersForOneCustomer = async (req, res) => {
     try {
-        const orders = await CustomizeOrder.find({client: req.params.id});
+        const orders = await Order.find({customer: req.params.id});
         res.status(200).json({
             status: 'success',
             results: orders.length,
@@ -18,9 +18,9 @@ exports.getAllCustomizedOrderForOneCustomer = async (req, res) => {
     }
 }
 
-exports.getAllCustomizedOrderForOneSeller = async (req, res) => {
+exports.getAllOrdersForOneSeller = async (req, res) => {
     try {
-        const orders = await CustomizeOrder.find({shop_owner: req.params.id});
+        const orders = await Order.find({shop_owner: req.params.id});
         res.status(200).json({
             status: 'success',
             results: orders.length,
@@ -36,9 +36,9 @@ exports.getAllCustomizedOrderForOneSeller = async (req, res) => {
     }
 }
 
-exports.createCustomizeOrder = async (req, res) => {
+exports.createOrder = async (req, res) => {
     try {
-        const order = new CustomizeOrder(req.body);
+        const order = new Order(req.body);
         await order.save();
         res.status(200).json({
             status: 'success',
@@ -54,9 +54,9 @@ exports.createCustomizeOrder = async (req, res) => {
     }  
 }
 
-exports.updateCustomizeOrder = async (req, res) => {
+exports.updateOrder = async (req, res) => {
     try {
-        const order = await CustomizeOrder.findByIdAndUpdate(req.params.id, req.body, {
+        const order = await Order.findByIdAndUpdate(req.params.id, req.body, {
             new: true,
             runValidators: true
         });
@@ -71,9 +71,9 @@ exports.updateCustomizeOrder = async (req, res) => {
     }
 }
 
-exports.deleteCustomizeOrder = async (req, res) => {
+exports.deleteOrder = async (req, res) => {
     try {
-        const order = await CustomizeOrder.findByIdAndDelete(req.params.id);
+        const order = await Order.findByIdAndDelete(req.params.id);
         if (!order) {
             res.status(404).send('order not found');
         }

@@ -26,7 +26,7 @@ const CustomizeOrderSchema = new mongoose.Schema({
         ref: 'User',
         required: true,
     },
-    shopOwner : {
+    shop_owner : {
         type: mongoose.SchemaTypes.ObjectId,
         ref: 'User',
         required : true,

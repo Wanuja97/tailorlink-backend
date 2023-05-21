@@ -21,6 +21,17 @@ const OrderSchema = new mongoose.Schema({
         ref: 'OrderProposal',
         required: false,
     },
+    order_items: [{
+        product_id: {
+            type: mongoose.SchemaTypes.ObjectId,
+            ref: 'Product',
+            required: true,
+        },
+        quantity: {
+            type: Number,
+            required: true,
+        },
+    }],
     status: {
         type: String,
         required: true,

@@ -20,6 +20,7 @@ const categoryRoutes = require('./routes/Category.routes');
 const notificationRoutes = require('./routes/Notification.routes');
 const customizedOrderRoutes = require('./routes/CustomizeOrder.routes');
 const orderRoutes = require('./routes/Order.routes');
+const orderProposalRoutes = require('./routes/OrderProposal.routes');
 
 app.use(morgan('combined'));
 app.use(cors());
@@ -30,6 +31,7 @@ app.use('/api/categories', categoryRoutes);
 app.use('/api/notifications', notificationRoutes);
 app.use('/api/customizeorder', customizedOrderRoutes);
 app.use('/api/order', orderRoutes);
+app.use('/api/orderproposal', orderProposalRoutes);
 
 server.listen(port, () => {
     console.log(`Server listening on port ${port}`);

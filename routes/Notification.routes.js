@@ -14,5 +14,8 @@ app.route('/').post(notificationController.createNewNotification);
 app.route('/:id').get(notificationController.getAllNotificationsForUser);
 // delete notifcation by id
 app.route('/:id').delete(notificationController.deleteNotification);
-
+// delete all notifications for user
+app.route('/user/:id').delete(notificationController.deleteAllNotificationsForUser);
+// mark notifications as read for user
+app.route('/user/:id').patch(notificationController.markNotificationsAsReadForUser);
 module.exports = app ;

@@ -33,7 +33,7 @@ const orderProposalSchema = new mongoose.Schema({
         type: Date,
         required: true,
     },
-    client : {
+    customer : {
         type: mongoose.SchemaTypes.ObjectId,
         ref: 'User',
         required: true,

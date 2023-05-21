@@ -1,4 +1,5 @@
 // user controller
+const userRoles = require('../constants/index.js');
 const userModel = require('../models/User.model');
 const EmailService = require('../Services/Email/index');
 const sellerRequest = require('../models/SellerRequest.model');
@@ -94,7 +95,22 @@ exports.deleteUser = async (req, res) => {
         res.status(500).send(error);
     }
 };
-
+exports.getAllAdmins = async (req,res)=>{
+    console.log(userRoles.ADMIN)
+    try{
+        const admins = await userModel.find({role : userRoles.ADMIN});
+        res.status(200).json({
+            status: 'success',
+            results: admins.length,
+            data: {
+                admins,
+            },
+        });
+    }
+    catch(error){
+        res.status(500).send(error);
+    }
+}
 exports.createSellerRequest = async (req, res) => {
     console.log(req.body);
     try {

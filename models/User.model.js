@@ -1,5 +1,5 @@
 // user model
-
+const UserRoles = require('../constants/index.js')
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
@@ -41,7 +41,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true,
-        default: 'customer',
+        default: UserRoles.CUSTOMER,
     },
     is_banned: {
         type: Boolean,

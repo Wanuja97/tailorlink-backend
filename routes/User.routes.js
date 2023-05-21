@@ -18,6 +18,8 @@ app.route('/:id').get(userController.getUserById);
 app.route('/:id').patch(userController.updateUser);
 // delete user by id
 app.route('/:id').delete(userController.deleteUser);
+// get all admins
+app.route('/admins/all').get(userController.getAllAdmins);
 // seller request route
 app.route('/seller/request').post(userController.createSellerRequest);
 // approve seller request route

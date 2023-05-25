@@ -1,3 +1,13 @@
+/**
+ _____                    _  _    _____                     _             
+|  ___|                  (_)| |  /  ___|                   (_)            
+| |__   _ __ ___    __ _  _ | |  \ `--.   ___  _ __ __   __ _   ___   ___ 
+|  __| | '_ ` _ \  / _` || || |   `--. \ / _ \| '__|\ \ / /| | / __| / _ \
+| |___ | | | | | || (_| || || |  /\__/ /|  __/| |    \ V / | || (__ |  __/
+\____/ |_| |_| |_| \__,_||_||_|  \____/  \___||_|     \_/  |_| \___| \___|
+
+ */
+
 const nodemailer = require('nodemailer');
 const Mailgen = require('mailgen');
 require('dotenv').config();
@@ -5,6 +15,8 @@ require('dotenv').config();
 class EmailService{
     constructor(user_email, user_first_name, user_last_name){
         this.email = user_email;
+        this.user_first_name = user_first_name;
+        this.user_last_name = user_last_name;
     }
     
     async sendWelcome(req,res){

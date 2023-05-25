@@ -3,6 +3,12 @@ const UserRoles = require('../constants/index.js')
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
+    user_name:{
+        type: String,
+        required: true,
+        trim: true,
+        unique : [true, "Username already taken.."]
+    },
     first_name: {
         type: String,
         required: true,
@@ -17,18 +23,17 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true,
-        unique: true, // this is a unique index
+        unique : [true, "Email address already taken.."]
+    },
+    hash_password:{
+        type: String,
+        required: true,
     },
     address: {
         type: String,
         required: false,
         trim: true,
         default: null
-    },
-    firebase_uid: {
-        type: String,
-        required: true,
-        trim: true,
     },
     telephone: {
         type: String,

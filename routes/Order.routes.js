@@ -11,13 +11,13 @@ const AuthMiddleware = require('./../middlewares/Auth/index');
 
 // create order
 app.route('/').post(order.createOrder);
-// get all orders for one customer
-app.route('/customer/:id').get(order.getAllOrdersForOneCustomer);
-// get all orders for one seller
-app.route('/seller/:id').get(order.getAllOrdersForOneSeller);
 // update one order by id
 app.route('/:id').patch(order.updateOrder);
 // delete an order by id
 app.route('/:id').delete(order.deleteOrder);
+// get all orders for one seller
+app.route('/seller/:id').get(order.getAllOrdersForOneSeller);
+// get all orders for one customer
+app.route('/customer/:id').get(order.getAllOrdersForOneCustomer);
 
 module.exports = app ;

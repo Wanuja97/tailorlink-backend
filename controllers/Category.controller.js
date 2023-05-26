@@ -10,6 +10,8 @@
 */
 
 const categoryModel = require('../models/Category.model');
+const UserRoles = require('../constants/index.js');
+const userRoleAuthorization = require('../middlewares/Auth/getUserRole');
 
 exports.getAllCategories = async (req, res) => {
     try {
@@ -28,14 +30,29 @@ exports.getAllCategories = async (req, res) => {
 
 exports.createCategory = async (req, res) => {
     try {
-        const category = new categoryModel(req.body);
-        await category.save();
-        res.status(200).json({
-            status: 'success',
-            data: {
-                category,
-            },
-        });   
+        const {category_name, user_id} = req.body;
+        const role = await userRoleAuthorization.findUserRoleById(user_id);
+
+        if(!((role == UserRoles.ADMIN) || (role == UserRoles.SUPERADMIN))){
+            return res.status(401).json({
+                status: 'failed',
+                message: "User is not authorized"
+            });
+        }
+        else{
+            const category = await categoryModel.create({
+                category_name,
+                admin_id: user_id,
+            });
+    
+            res.status(200).json({
+                status: 'success',
+                data: {
+                    category,
+                },
+            });
+        }
+   
     } catch (error) {
         res.status(500).send(error);
     }  

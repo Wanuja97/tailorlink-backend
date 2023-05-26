@@ -3,7 +3,7 @@ const http = require('http');
 var morgan = require('morgan');
 const dotenv = require('dotenv');
 const express = require('express');
-
+const validateTokenMiddleware = require('./middlewares/Auth/validateAccessTokenHandler');
 const app = express();
 const server = http.createServer(app);
 
@@ -31,6 +31,7 @@ app.use(express.json());
 app.use(morgan('combined'));
 
 app.use('/api/auth',authRoutes);
+// app.use(validateTokenMiddleware.validateToken);
 app.use('/api/users', userRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/order', orderRoutes);

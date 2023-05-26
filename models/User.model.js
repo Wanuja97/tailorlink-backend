@@ -47,6 +47,7 @@ const userSchema = new mongoose.Schema({
         required: true,
         trim: true,
         default: UserRoles.CUSTOMER,
+        enum: [UserRoles.SUPERADMIN,UserRoles.ADMIN, UserRoles.CUSTOMER, UserRoles.SELLER]
     },
     is_banned: {
         type: Boolean,

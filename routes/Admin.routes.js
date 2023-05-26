@@ -4,13 +4,13 @@ const adminController = require('../controllers/Admin.Controller');
 
 
 // get all users
-app.route('/').get(adminController.getAllUsers);
+app.route('/users/all').get(adminController.getAllUsers);
 
 // userban route
-app.route('/ban/:id').patch(adminController.banUser);
+app.route('user/ban/:id').patch(adminController.banUser);
 
 // get all admins
-app.route('/all').get(adminController.getAllAdmins);
+app.route('admins/all').get(adminController.getAllAdmins);
 
 // get all seller requests
 app.route('/seller/requests/all').get(adminController.getAllSellerRequests);

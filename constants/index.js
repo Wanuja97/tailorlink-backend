@@ -11,11 +11,13 @@
 const ADMIN = 'admin';
 const SELLER = 'seller';
 const CUSTOMER = 'customer';
+const SUPERADMIN = 'super-admin';
 
 const UserRoles = {
     ADMIN,
     SELLER,
     CUSTOMER,
+    SUPERADMIN
 }
 
 module.exports = UserRoles;

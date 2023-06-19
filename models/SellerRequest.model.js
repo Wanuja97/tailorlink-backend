@@ -6,6 +6,11 @@ const sellerRequestSchema = new mongoose.Schema({
         ref: 'User',
         required: true,
     },
+    title:{
+        type: String,
+        required: true,
+        trim: true
+    },
     description : {
         type: String,
         required: true,

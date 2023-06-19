@@ -3,7 +3,7 @@ const app = express.Router()
 const orderproposalController = require('../controllers/OrderProposal.controller');
 
 // importing User authorization middleware
-const AuthMiddleware = require('./../middlewares/Auth/index');
+const AuthMiddleware = require('../middlewares/Auth/firebaseAuthMiddleware');
 
 // user authorization middleware - applies to all routes defined after this
 // app.use(AuthMiddleware.decodeToken);

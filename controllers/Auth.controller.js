@@ -89,7 +89,6 @@ exports.loginUser = async (req, res) => {
                     username: user.user_name,
                     email: user.email,
                     id: user.id,
-                    password: user.hash_password
                 }
             }, process.env.ACCESS_TOKEN_SECRET,
                 { expiresIn: "60m" }
